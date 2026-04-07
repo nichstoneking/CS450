@@ -194,6 +194,12 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
+# Langrepl runtime data (keep config YAML/prompts in version control)
+.langrepl/.db/
+.langrepl/.history
+.langrepl/logs/
+.langrepl/config.checkpoints.db
+
 # Cursor
 #  Cursor is an AI-powered code editor. `.cursorignore` specifies files/directories to
 #  exclude from AI features like autocomplete and code analysis. Recommended for sensitive data
