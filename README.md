@@ -48,4 +48,9 @@ ollama serve                     # start Ollama in a separate terminal
 langrepl -w .                    # start chatting (cs450-tutor agent)
 ```
 
-Use `/model` inside the chat to switch between Qwen2.5 3B (local) and GPT-4o (requires an OpenAI key in `.env`).
+Switch models with the `-m` flag or interactively with `/model` (Enter on agent, then Tab between providers):
+
+```bash
+langrepl -w . -m gpt-mini       # start with GPT-4.1-mini (needs OpenAI key in .env)
+langrepl -w . -m qwen-local     # start with Qwen2.5 3B (needs Ollama running)
+```

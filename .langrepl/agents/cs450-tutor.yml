@@ -1,9 +1,9 @@
 version: 2.2.1
 name: cs450-tutor
-description: "CS450 teaching assistant chatbot for answering course questions"
+description: CS450 teaching assistant chatbot for answering course questions
 prompt:
-  - prompts/agents/cs450_tutor.md
-llm: qwen-local
+- prompts/agents/cs450_tutor.md
+llm: gpt-mini
 checkpointer: sqlite
 default: true
 recursion_limit: 40
