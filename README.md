@@ -8,22 +8,27 @@
 
 ## What and Why
 
-Fine tune a LLM for CS450, trained on data from lecture slides and assignments.
-
-**Topics Covered:**
-- Neural Networks
-- Large Language Models
-- Natural Language Processing
-- Supervised Learning
+Fine run rag on an OS model for CS450, lecture slides and assignments embedded.
 
 ## How
 
 **Model:** Qwen2.5 3B
 
 **Tasks:**
-- Clean data
-- Fine tune on data
-- Format testing
-  - q8
-  - q4
-- QA testing
+- ~~Product definition~~
+- ~~Figure out stack~~
+- Diagram
+- Implement
+
+**Product Design Choices:**
+- Text interface (maybe find cool cli library for this)
+- Locally hosted model (?)
+- Embedding pipeline
+- Iterate if more time
+  - agentic RAG? maybe we could include some of the code, other resources, etc
+
+**Tech stack:**
+- Python
+- Langrepl (start with)
+- Langchain (Qwen2.5 3B)
+- ChromaDB (local)
