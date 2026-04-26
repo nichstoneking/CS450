@@ -20,7 +20,6 @@ def load_pdf(file_path):
     print(f"Loaded {file_path}")
 
 # NOTE: This code block has already been executed to initialize ChromaDB with the PDF data.
-# It is commented out to prevent duplicate entries.
 # To reload the data, delete the chromadb folder and uncomment the code block below to run it again.
 if __name__ == "__main__":
     """pdf_paths = ["slides/01FoundationsAI.pdf",
