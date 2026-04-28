@@ -1,7 +1,16 @@
 [project]
 name = "cs450"
 version = "0.1.0"
-description = "Add your description here"
+description = "Qwen based chatbot for CS 450"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "langchain",
+    "langchain-ollama",
+    "langchain-huggingface",
+    "langchain-chroma",
+    "chromadb",
+    "pypdf",
+    "transformers",
+    "sentence-transformers"
+]
