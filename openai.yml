@@ -1,0 +1,10 @@
+# OpenAI GPT-4.1-mini — cloud-hosted, requires API key
+- version: 1.0.0
+  model: gpt-4.1-mini
+  alias: gpt-mini
+  provider: openai
+  max_tokens: 4096
+  temperature: 0.7
+  context_window: 1047576
+  input_cost_per_mtok: 0.40
+  output_cost_per_mtok: 1.60

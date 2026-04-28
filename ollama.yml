@@ -1,0 +1,8 @@
+# Qwen2.5 3B — locally hosted via Ollama
+- version: 1.0.0
+  model: qwen2.5:3b
+  alias: qwen-local
+  provider: ollama
+  max_tokens: 4096
+  temperature: 0.7
+  context_window: 32768
