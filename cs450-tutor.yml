@@ -8,4 +8,9 @@ checkpointer: sqlite
 default: true
 recursion_limit: 40
 tools:
-  patterns: []
+  patterns:
+    - "mcp:chroma:chroma_query_documents"
+    - "mcp:chroma:chroma_get_collection_info"
+    - "mcp:chroma:chroma_get_collection_count"
+    - "mcp:chroma:chroma_list_collections"
+    - "mcp:chroma:chroma_peek_collection"
