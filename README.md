@@ -56,15 +56,39 @@ and cites retrieved chunks back to the user.
 - Python 3.14 or newer
 - [`uv`](https://docs.astral.sh/uv/) (used both for project deps and to run `chroma-mcp` on demand)
 - [`langrepl`](https://github.com/midodimori/langrepl) installed (e.g. `uv tool install langrepl`)
-- One of:
-  - `ollama` running locally with `qwen2.5:3b` pulled (`ollama pull qwen2.5:3b`), **or**
-  - an OpenAI API key in `.env` as `LLM__OPENAI_API_KEY=...`
+- One LLM provider — either an OpenAI API key or a local Ollama install.
+  Set up below in **Configure the LLM provider**.
 
 ### Install
 
 ```bash
 uv sync                          # installs project deps into .venv (only needed for db_helper.py / backup_chat.py)
 ```
+
+### Configure the LLM provider
+
+The agent talks to either Ollama (local) or OpenAI. Pick one:
+
+**Option A — OpenAI (default in `.langrepl/agents/cs450-tutor.yml`).** Create a
+`.env` file in the project root (next to `pyproject.toml`) containing:
+
+```bash
+LLM__OPENAI_API_KEY=sk-proj-...your key here...
+```
+
+The variable name is `LLM__OPENAI_API_KEY` with a **double underscore** — that
+is what langREPL reads (it uses `LLM__` as the env-var prefix for LLM
+settings). The `.env` file is gitignored, so your key stays local.
+
+**Option B — local via Ollama.** No key needed. In another terminal run
+`ollama serve` and make sure `qwen2.5:3b` is pulled:
+
+```bash
+ollama pull qwen2.5:3b
+```
+
+Then inside langREPL switch with `/model qwen-local`. If you only want Ollama
+and never OpenAI, you can skip the `.env` step entirely.
 
 ### Add the slides
 
