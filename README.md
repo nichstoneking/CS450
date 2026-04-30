@@ -8,28 +8,28 @@
 
 ## What and Why
 
-Run rag on an OS model for CS450, lecture slides and assignments embedded.
+Run rag on an OS model for CS450, lecture slides embedded.
 
 ## How
 
 **Model:** Qwen2.5 3B
 
 **Tasks:**
-- ~~Product definition~~
-- ~~Figure out stack~~
+- Product definition
+- Figure out stack
 - Diagram
 - Implement
 
 **Product Design Choices:**
-- Text interface (maybe find cool cli library for this)
-- Locally hosted model (?)
+- Text interface
+- Locally hosted model
 - Embedding pipeline
 - Iterate if more time
   - agentic RAG? maybe we could include some of the code, other resources, etc
 
 **Tech stack:**
 - Python
-- Langrepl (start with)
+- Local Python scripts for RAG and ChromaDB
 - Langchain (Qwen2.5 3B)
 - ChromaDB (local)
 
@@ -37,20 +37,27 @@ Run rag on an OS model for CS450, lecture slides and assignments embedded.
 
 ### Prerequisites
 
-- [uv](https://docs.astral.sh/uv/getting-started/installation/) (Python package manager)
-- [Ollama](https://ollama.com/) with `qwen2.5:3b` pulled (`ollama pull qwen2.5:3b`)
+- Python 3.14 or newer
+- `ollama` installed and running locally
+- `qwen2.5:3b` pulled in Ollama (`ollama pull qwen2.5:3b`)
 
 ### Install & Run
 
 ```bash
-uv tool install langrepl        # install the CLI
 ollama serve                     # start Ollama in a separate terminal
-langrepl -w .                    # start chatting (cs450-tutor agent)
+python backup_chat.py            # start chat
 ```
 
-Switch models with the `-m` flag or interactively with `/model` (Enter on agent, then Tab between providers):
+> Note: Project proceeded without using `langrepl` for RAG. The current workflow is based on local Python scripts (`db_helper.py`, `backup_chat.py`) and local Ollama model access.
+
+If you want to switch to GPT, switch llm in `backup_chat.py`:
 
 ```bash
-langrepl -w . -m gpt-mini       # start with GPT-4.1-mini (needs OpenAI key in .env)
-langrepl -w . -m qwen-local     # start with Qwen2.5 3B (needs Ollama running)
+llm = ChatOpenAI(model="choose model here", api_key="your api key here")
+```
+
+If you want to regenerate slide embeddings, uncomment and run:
+
+```bash
+python db_helper.py
 ```
