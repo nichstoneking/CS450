@@ -66,13 +66,39 @@ and cites retrieved chunks back to the user.
 uv sync                          # installs project deps into .venv (only needed for db_helper.py / backup_chat.py)
 ```
 
-The slide embeddings are committed under `./chromadb/`, so RAG works
-immediately without rebuilding. To regenerate from the PDFs in `slides/`:
+### Add the slides
+
+The lecture PDFs are not included in this repo. Download them from Canvas
+and drop them into the `slides/` folder. The default `PDF_PATHS` list in
+[`db_helper.py`](db_helper.py) expects these filenames:
+
+```
+slides/01FoundationsAI.pdf
+slides/02Search.pdf
+slides/03ConstraintSatisfaction.pdf
+slides/04Learning.pdf
+slides/05NeuralNetworks.pdf
+slides/06DeepLearning.pdf
+slides/07LogicalAgents.pdf
+slides/08Uncertainty.pdf
+slides/09NaturalLanguageModels.pdf
+```
+
+If your filenames differ, rename them or edit `PDF_PATHS` in `db_helper.py`
+to match. The filename is what the agent will cite back as `source`, so use
+clean names.
+
+### Build the embeddings
+
+Once the PDFs are in `slides/`, build (or rebuild) the local ChromaDB store:
 
 ```bash
-rm -rf chromadb
-.venv/bin/python db_helper.py    # re-embeds all 9 lecture decks (~5–10 min on CPU)
+rm -rf chromadb              # only needed if a previous store exists
+.venv/bin/python db_helper.py    # ~5–10 min on CPU for the 9 default decks
 ```
+
+`db_helper.py` is idempotent — it deletes and recreates the `slides`
+collection on every run, so re-running it will never duplicate chunks.
 
 ### Run
 
