@@ -25,7 +25,6 @@ Run rag on an OS model for CS450, lecture slides embedded.
 - Locally hosted model
 - Embedding pipeline
 - Iterate if more time
-  - agentic RAG? maybe we could include some of the code, other resources, etc
 
 **Tech stack:**
 - Python
