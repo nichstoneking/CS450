@@ -9,6 +9,7 @@ dependencies = [
     "langchain-ollama",
     "langchain-huggingface",
     "langchain-chroma",
+    "langchain-text-splitters",
     "chromadb",
     "pypdf",
     "transformers",
